@@ -1,8 +1,8 @@
 let grid = undefined;
-let fill1 = prompt("enter a basic color name in lower case", "blue");
+let fill1 = prompt("enter a basic color name in lowercase", "black");
 let stroke1 = prompt("enter another basic color in lowercase", "teal");
 function setup() {
-    createCanvas(1000, 800)
+    createCanvas(1000, 950)
     background(204, 229, 255);
     // grid = loadImage("100px_grid.png");
 }
