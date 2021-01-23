@@ -16,11 +16,14 @@ function draw() {
     strokeWeight(20);
 
     //body
+    strokeWeight(15);
+    stroke(0);
     ellipse(500, 400, 200);
     ellipse(500, 600, 200);
     ellipse(500, 800, 200);
 
     //arms
+    strokeWeight(15);
     line(200, 200, 400, 400);
     line(800, 200, 600, 400);
     line(200, 300, 300, 300);
@@ -33,21 +36,42 @@ function draw() {
     //hat brim
     //stroke(stroke2);
     strokeWeight(20);
-    line(400, 100, 600, 100);
+    line(400, 120, 600, 120);
+
     //hat body
-    quad(450, 20, 550, 20, 550, 100, 450, 100);
+    //quad(450, 20, 550, 20, 550, 100, 450, 100);
+    strokeWeight(15);
+    fill(255, 204, 51);
+    triangle(400, 100, 400, 20, 450, 100);
+    triangle(450, 100, 500, 20, 550, 100);
+    triangle(550, 100, 600, 20, 600, 100);
+
     //eyes
     stroke(0);
     strokeWeight(30);
     point(450, 200);
     point(550, 200);
+
+    //eyebrows
+    strokeWeight(5);
+    noFill()
+    arc(450, 190, 40, 40, PI, TWO_PI);
+    arc(550, 190, 40, 40, PI, TWO_PI);
+
+    //nose
+    strokeWeight(5);
+    fill(255, 153, 51);
+    triangle(500, 220, 550, 230, 500, 240);
+
+
     //mouth
     noFill()
     strokeWeight(10);
-    arc(500, 200, 100, 100, 290, HALF_PI);
+    arc(500, 220, 100, 100, 290, HALF_PI);
 
     //buttons
     strokeWeight(20);
+    stroke(0, 102, 204);
     point(500, 350);
     point(500, 400);
     point(500, 450);
@@ -58,3 +82,8 @@ function draw() {
     point(500, 800);
     point(500, 850);
 }
+
+//background
+
+//snow
+
