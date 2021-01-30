@@ -4,29 +4,12 @@ const myQuiz = [
     {question: 'What animal is the fastest of all land animals?', answer: 'cheetah'},
 ];
 
-const.randomQuestion = question.random();
+const randomQuestion = Math.round(Math.random() * (myQuiz.length - 1));
+console.log(randomQuestion);
 
-const firstQuestion = prompt(myQuiz[0].question);
-const firstAnswer = myQuiz[0].answer
-if(firstQuestion == firstAnswer) {
-    alert('you are right!');
-} else {
-    alert('that is incorrect' + ', the correct answer is a murder of crows');
-}
+const userAnswer = window.prompt(myQuiz[randomQuestion].question);
+console.log(userAnswer);
 
-const secondQuestion = prompt(myQuiz[1].question);
-const secondAnswer = myQuiz[1].answer
-if(secondQuestion == secondAnswer) {
-    alert('you are right!');
-} else {
-    alert('that is incorrect' + ', this is true!');
-}
+window.alert('You answered ' + userAnswer + '. The correct answer was ' + myQuiz[randomQuestion].answer + '!');
 
-const thirdQuestion = prompt(myQuiz[2].question);
-const thirdAnswer = myQuiz[2].answer
-if(thirdQuestion == thirdAnswer) {
-    alert('you are right!');
-} else {
-    alert('that is incorrect' + ', the correct answer is the cheetah');
-}
 
