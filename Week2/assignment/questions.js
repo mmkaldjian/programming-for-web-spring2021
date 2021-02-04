@@ -11,3 +11,4 @@ const userAnswer = window.prompt(myQuiz[randomQuestion].question);
 console.log(userAnswer);
 
 window.alert('You answered ' + userAnswer + '. The correct answer was ' + myQuiz[randomQuestion].answer + '!');
+
