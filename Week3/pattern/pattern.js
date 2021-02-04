@@ -3,7 +3,7 @@ function setup() {
     noLoop(); //Stops from continuously executing code
 }
 
-function createTile(originX, originY, primaryColor, dotWeight) { //unsure why we have to put originx and y here as well?
+function createTile(originX, originY, primaryColor, secondaryColor, dotWeight) { //unsure why we have to put originx and y here as well?
     translate(originX, originY) //sets registration point
     fill(primaryColor);
     rect(0, 0, 200, 200);
@@ -17,7 +17,7 @@ function createTile(originX, originY, primaryColor, dotWeight) { //unsure why we
     triangle(150, 100, 200, 0, 200, 200);
     triangle(100, 150, 200, 200, 0, 200);
     triangle(0, 0, 50, 100, 0, 200);
-    fill('teal');
+    fill(secondaryColor);
     noStroke();
     quad(100, 50, 150, 100, 100, 150, 50, 100);
     stroke('orange');
@@ -31,13 +31,13 @@ function createTile(originX, originY, primaryColor, dotWeight) { //unsure why we
 }
 
 function draw() { //This is where you start parameterizing things
-    createTile(0, 0, 'maroon', 5);
-    createTile(0, 200, 'red', 10);
-    createTile(0, 200, 'maroon', 5); //not 400, because stating from LAST origin, not first.
-    createTile(200, -400, 'red', 10);
-    createTile(0, 200, 'maroon', 20);
-    createTile(0, 200, 'red', 10);
-    createTile(200, -400, 'maroon', 5);
-    createTile(0, 200, 'red', 10);
-    createTile(0, 200, 'maroon', 5);
+    createTile(0, 0, 'maroon', 'teal', 20);
+    createTile(0, 200, 'red', 'maroon', 10);
+    createTile(0, 200, 'maroon', 'teal', 20); //not 400, because stating from LAST origin, not first.
+    createTile(200, -400, 'red', 'maroon', 10);
+    createTile(0, 200, 'maroon', 'teal', 20);
+    createTile(0, 200, 'red', 'maroon', 10);
+    createTile(200, -400, 'maroon', 'teal', 20);
+    createTile(0, 200, 'red', 'maroon', 10);
+    createTile(0, 200, 'maroon', 'teal', 20);
 }
