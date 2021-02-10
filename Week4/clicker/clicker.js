@@ -19,6 +19,9 @@ function draw(){
     rectX += speed;
     if(rectX > width) { // width = width of entire canvas
         noLoop();
+        textSize(25);
+        textStyle('bold');
+        fill('magenta');
         text('Your score was ' + clickCount, 100, 300);
     }
 }
