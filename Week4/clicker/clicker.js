@@ -37,4 +37,3 @@ function drawShape() { //create as a function so that it is something we can det
     fill('teal');
     rect(rectX, rectY, rectWidth, rectHeight);
 }
-

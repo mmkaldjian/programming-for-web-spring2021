@@ -2,7 +2,7 @@
 const rectHeight = 100;
 const rectWidth = 75;
 
-let startingX = 200;
+let startingX = 200; // why when i change this to 100 does only the top row shift?
 let startingY = 100;
 let myCards = [];
 let startingId = 0;
@@ -15,7 +15,7 @@ function setup() {
             for (let i = 0; i < 4; i++) {
                 rect(startingX, startingY, rectWidth, rectHeight);
                 myCards.push({ x: startingX, y: startingY, id: startingId});
-                startingX += 150; // will move x 150
+                startingX += 100; // will move x 150
                 startingId ++ ;
             }
             startingY += 150;
@@ -29,8 +29,14 @@ function setup() {
 function mousePressed() {
     for (let j = 0; j < myCards.length; j++) {
     let distance = dist(mouseX, mouseY, myCards[j].x, myCards[j].y); // to detect distance between mouse and this rectangle in the array - the rectangle is j, and to access the object inside of that array item, put x/y.
-    if (distance < rectHeight + rectWidth) {
+    if ((distance >= rectWidth <= startingX + rectWidth) && (distance >= rectHeight <= startingY + rectHeight)); {
         console.log('Card has been clicked', myCards[j].id);
     }
 }
 }
+
+
+//if ((distance >= startingX && mouseX <= startingX + rectWidth) && (distance >= startingY && mouseY <= startingY + rectHeight)); {
+//if ((distance >= rectWidth <= startingX + rectWidth) && (distance >= rectHeight <= startingY + rectHeight)); {
+
+// I want to make cards bigger - how do I do this?
