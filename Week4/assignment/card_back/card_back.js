@@ -29,9 +29,15 @@ function createTile() {
     line(75, 0, 75, 100);
     line(0, 100, 75, 100);
     line(75, 100, 150, 100);
-
-
-
+    strokeWeight(10);
+    point(30, 20);
+    point(120, 20);
+    point(30, 180);
+    point(120, 180);
+    point(60, 50);
+    point(90, 50);
+    point(60, 150);
+    point(90, 150);
 }
 
 function draw() {
