@@ -8,7 +8,7 @@ let myCards = [];
 let startingId = 0;
 
 function setup() {
-    createCanvas(1000, 800);
+    createCanvas(1000, 1100);
     background(0);
     //for (let h = 0; h < 2; h++) {
         for (let k = 0; k < 4; k++) { //rows

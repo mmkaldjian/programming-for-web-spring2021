@@ -6,13 +6,14 @@ function setup() {
 function createTile() {
     translate(0, 0) //sets registration point
     fill('LavenderBlush');
-    strokeWeight(5); //why does one side appear thicker than the other when the weight is the same?
+    strokeWeight(0); //why does one side appear thicker than the other when the weight is the same?
     rect(0, 0, 150, 200);
     noStroke();
     fill("LightSteelBlue");
     triangle(0, 0, 75, 100, 0, 200);
     triangle(150, 0, 150, 200, 75, 100);
     stroke("magenta");
+    strokeWeight(5);
     line(40, 0, 40, 200);
     line(110, 0, 110, 200);
     fill('teal');
