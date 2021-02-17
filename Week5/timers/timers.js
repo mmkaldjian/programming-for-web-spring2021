@@ -26,7 +26,7 @@ function keyTyped() {
     blockColor = keyToNumber;
 }
 
-//set time out only occurs once. exat same as set interval except only occurs once
+//setTimeout only occurs once. exact same as set interval except only occurs once. in this case, allows to start on a lag when refreshed
 window.setTimeout(() => {
     drawTimer = window.setInterval(() => { //declare set interval as a variable with drawTimer, so that can later on refer to it and clear it.
         if(blockY - 50 <= height) { //create a condition
@@ -37,6 +37,7 @@ window.setTimeout(() => {
             blockX += 50;//move it over one x length each time
         }
         if(blockY - 50 > height && blockX - 50 > width) {// && is an operator?
+            //cancels timer
             window.clearInterval(drawTimer);
             alert('done');
         }
