@@ -2,6 +2,8 @@
 
 let bubble; // an object with data in it; object instances. objects are a collection of data and functionality
 // let bubble2;
+let startingX = 100;
+let startingY = 100;
 
 function setup() {
     createCanvas(500, 500);
@@ -11,15 +13,15 @@ function setup() {
 
 function draw() {
     background(0);
-    // bubble.move();
-    // bubble.show();
+    bubble.move();
+    bubble.show();
     // bubble2.move();
     // bubble2.show();
-    for (let i = 0; i < 10; i++) { //what am I doing wrong here???
-        bubble.move();
-        bubble.show();
-    }
-}
+//     for (let i = 0; i < 10; i++) { //what am I doing wrong here in creating a loop?
+//         bubble.push(new Bubble(startingX, startingY));
+//         startingX += 100;
+//     }
+ }
 
 class Bubble {
     constructor() { //first must execute a function to construct an object
