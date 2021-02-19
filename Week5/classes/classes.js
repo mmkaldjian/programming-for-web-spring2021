@@ -13,7 +13,7 @@ function setup() {
 
 function draw() {
     background(0);
-    for (let j = 0; j < 10; j++) {
+    for (let j = 0; j < 10; j++) { //why do we need two loops here?
         bubbleArray[j].move();
         bubbleArray[j].show();
     // bubble.move();
