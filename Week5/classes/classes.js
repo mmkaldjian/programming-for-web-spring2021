@@ -1,26 +1,29 @@
 // class is an idea of a template or blueprint; object template
 
-let bubble; // an object with data in it; object instances. objects are a collection of data and functionality
+let bubbleArray = []; // an object with data in it; object instances. objects are a collection of data and functionality
 // let bubble2;
-let startingX = 100;
-let startingY = 100;
 
 function setup() {
     createCanvas(500, 500);
-    bubble = new Bubble(); //'new' keyword creates an object instance. execute a function to construct an object. 
-    // bubble2 = new Bubble();
+    for (let i = 0; i < 10; i++) {
+    const bubble = new Bubble(); //'new' keyword creates an object instance. execute a function to construct an object. 
+    bubbleArray.push(bubble);
+    }
 }
 
 function draw() {
     background(0);
-    bubble.move();
-    bubble.show();
+    for (let j = 0; j < 10; j++) {
+        bubbleArray[j].move();
+        bubbleArray[j].show();
+    // bubble.move();
+    // bubble.show();
     // bubble2.move();
     // bubble2.show();
 //     for (let i = 0; i < 10; i++) { //what am I doing wrong here in creating a loop?
 //         bubble.push(new Bubble(startingX, startingY));
 //         startingX += 100;
-//     }
+    }
  }
 
 class Bubble {
