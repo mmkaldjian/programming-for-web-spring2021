@@ -28,7 +28,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(1000, 1200);
+    createCanvas(1000, 900);
     let selectedFaces = [];
     for (let z = 0; z < 6; z++) {
         const randomIndex = floor(random(cardfaceArray.length));
@@ -54,9 +54,9 @@ function setup() {
 function draw () {
     background('lightBlue');
     if (gameState.numMatched === gameState.totalPairs) {
-        fill('yellow');
-        textSize(66);
-        text('You win!', 400, 425);
+        fill('magenta');
+        textSize(50);
+        text('You win!', 400, 820);
         noLoop();
     }
     for (let k = 0; k < cards.length; k++) {
@@ -85,7 +85,7 @@ function mousePressed() {
             gameState.flippedCards.push(cards[k]);
         }
     }
-}
+
     if (gameState.flippedCards.length === 2) { //once 2 cards are flipped up..
         gameState.attempts++;
         if (gameState.flippedCards[0].cardFaceImg === gameState.flippedCards[1].cardFaceImg) {
@@ -105,6 +105,7 @@ function mousePressed() {
                 loop();
                 window.clearTimeout(loopTimeout);
             }, 1000)
+        }ß
     }
 }
 
@@ -123,10 +124,12 @@ class Card {
     show () { // method - a method is like a function, but specific to a class
         if (this.face === UP || this.isMatch) {
             fill('#aaa');
+            noStroke();
             rect(this.x, this.y, this.width, this.height, 10);
             image(this.cardFaceImg, this.x, this.y);
     } else {
         fill('maroon');
+        noStroke();
         rect(this.x, this.y, this.width, this.height, 10); // added an extra argument; 10 is border radius
         image(cardback, this.x, this.y);
         }
