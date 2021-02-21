@@ -4,8 +4,13 @@ let startingX = 100;
 let startingY = 100;
 let cards = [];
 const gameState = {
+    totalPairs: 6,
+    flippedCards: [],
+    numMatched: 0,
+    attempts: 0,
+    waiting: false,
+};
 
-}
 let cardfaceArray = [];
 
 let cardback;
@@ -19,12 +24,11 @@ function preload() {
         loadImage('images/rotini-3.jpg'),
         loadImage('images/rigatoni-3.jpg'),
         loadImage('images/rotelle-3.jpg'),
-    ]
+    ];
 }
 
 function setup() {
     createCanvas(1000, 1200);
-    background(0);
     let selectedFaces = [];
     for (let z = 0; z < 6; z++) {
         const randomIndex = floor(random(cardfaceArray.length));
@@ -47,15 +51,62 @@ function setup() {
     }
 }
 
-function mousePressed() {
-    for (let k = 0; k < cards.length; k++) { // need a loop here, because no longer a single variable
-        if(cards[k].didHit(mouseX, mouseY)) { //did hit method built into class
-            console.log('flipped', cards[k]); // flip also built into class
+function draw () {
+    background('lightBlue');
+    if (gameState.numMatched === gameState.totalPairs) {
+        fill('yellow');
+        textSize(66);
+        text('You win!', 400, 425);
+        noLoop();
+    }
+    for (let k = 0; k < cards.length; k++) {
+        if (!cards[k].isMatch) {
+            cards[k].face = DOWN;
+        }
+        cards[k].show();
+    }
+    noLoop();
+    gameState.flippedCards.length = 0;
+    gameState.waiting = false;
+    fill(255);
+    textSize(36);
+    text('attempts ' + gameState.attempts, 100, 60);
+    text('matches ' + gameState.numMatched, 450, 60);
+}
 
+function mousePressed() {
+    if (gameState.waiting) {
+        return; //will stop function
+    }
+    for (let k = 0; k < cards.length; k++) { // need a loop here, because no longer a single variable
+        //first check flipped cards length, and then we can trigger the flip
+        if (gameState.flippedCards.length < 2 && cards[k].didHit(mouseX, mouseY)) { //did hit method built into class; making sure only two cards will flip at a time
+            console.log('flipped', cards[k]); // flip also built into class
+            gameState.flippedCards.push(cards[k]);
         }
     }
 }
-
+    if (gameState.flippedCards.length === 2) { //once 2 cards are flipped up..
+        gameState.attempts++;
+        if (gameState.flippedCards[0].cardFaceImg === gameState.flippedCards[1].cardFaceImg) {
+            // IF THEY MATCH:
+            // mark cards as matched so they don't flip back
+            gameState.flippedCards[0].isMatch = true;
+            gameState.flippedCards[1].isMatch = true;
+           // empty the flipped cards array
+            gameState.flippedCards.length = 0; //empty the array, ready for next set
+            // increment the score
+            gameState.numMatched++; //score
+            loop();
+        } else {
+            // IF THEY DONT MATCh:
+            gameState.waiting = true;
+            const loopTimeout = window.setTimeout(() => {
+                loop();
+                window.clearTimeout(loopTimeout);
+            }, 1000)
+    }
+}
 
 class Card {
     constructor (x, y, cardFaceImg) { // x and y parameters to change positions
@@ -65,18 +116,19 @@ class Card {
         this.height = 200;
         this.face = DOWN;
         this.cardFaceImg = cardFaceImg;
+        this.isMatch = false;
         this.show();
     }
 
     show () { // method - a method is like a function, but specific to a class
-        if (this.face === DOWN) {
-            fill('maroon');
-        rect(this.x, this.y, this.width, this.height, 10); // added an extra argument; 10 is border radius
-        image(cardback, this.x, this.y);
-    } else {
+        if (this.face === UP || this.isMatch) {
             fill('#aaa');
             rect(this.x, this.y, this.width, this.height, 10);
             image(this.cardFaceImg, this.x, this.y);
+    } else {
+        fill('maroon');
+        rect(this.x, this.y, this.width, this.height, 10); // added an extra argument; 10 is border radius
+        image(cardback, this.x, this.y);
         }
         
     }
