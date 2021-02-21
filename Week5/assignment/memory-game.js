@@ -85,7 +85,7 @@ function mousePressed() {
             gameState.flippedCards.push(cards[k]);
         }
     }
-}
+// } this curly bracket was actually ending the mouse pressed function
     if (gameState.flippedCards.length === 2) { //once 2 cards are flipped up..
         gameState.attempts++;
         if (gameState.flippedCards[0].cardFaceImg === gameState.flippedCards[1].cardFaceImg) {
@@ -105,8 +105,9 @@ function mousePressed() {
                 loop();
                 window.clearTimeout(loopTimeout);
             }, 1000)
-    }
-}
+    } // ends else
+} // ends flipped cards length equals 2
+} // moved down from ln 88
 
 class Card {
     constructor (x, y, cardFaceImg) { // x and y parameters to change positions
