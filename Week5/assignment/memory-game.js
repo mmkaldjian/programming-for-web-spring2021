@@ -28,7 +28,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(1000, 900);
+    createCanvas(displayWidth, displayHeight);
     let selectedFaces = [];
     for (let z = 0; z < 6; z++) {
         const randomIndex = floor(random(cardfaceArray.length));
