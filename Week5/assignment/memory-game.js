@@ -1,23 +1,52 @@
-let myCard;
 const DOWN = 'down';
 const UP = 'up';
+let startingX = 100;
+let startingY = 100;
+let cards = [];
+const gameState = {
 
+}
+let cardfaceArray = [];
+
+let cardback;
+
+function preload() {
+    cardback = loadImage('images/cardback.png');
+    cardfaceArray = [
+        loadImage('images/penne.jpg'),
+        loadImage('images/bowtie.jpg'),
+        loadImage('images/shells.jpg'),
+        loadImage('images/rotini.jpg'),
+        loadImage('images/rigatoni.jpg'),
+        loadImage('images/rotelle.jpg'),
+    }
+}
 function setup() {
     createCanvas(1000, 1200);
     background(0);
-    myCard = new Card();
+    for (let j = 0; j < 3; j++) { //rows
+        for (let i = 0; i < 4; i++) { //columns
+            cards.push(new Card(startingX, startingY)); // new class instance - "cookie"
+            startingX +=175; // increments
+        }
+        startingY += 225;
+        startingX = 100; //restart at 100 each row
+    }
 }
 
 function mousePressed() {
-    console.log(myCard.didHit(mouseX, mouseY));
-
+    for (let k = 0; k < cards.length; k++) { // need a loop here, because no longer a single variable
+        if(cards[k].didHit(mouseX, mouseY)) { //did hit method built into class
+            console.log('flipped'); // flip also built into class
+        }
+    }
 }
 
 
 class Card {
-    constructor () {
-        this.x = 100; //property
-        this.y = 100; //property
+    constructor (x, y) { // x and y parameters to change positions
+        this.x = x; //property
+        this.y = y; //property
         this.width = 150;
         this.height = 200;
         this.face = DOWN;
@@ -28,7 +57,8 @@ class Card {
         if (this.face === DOWN) {
             fill('maroon');
         rect(this.x, this.y, this.width, this.height, 10); // added an extra argument; 10 is border radius
-        } else {
+        image(cardback, this.x, this.y);
+    } else {
             fill('#aaa');
             rect(this.x, this.y, this.width, this.height, 10);
         }
