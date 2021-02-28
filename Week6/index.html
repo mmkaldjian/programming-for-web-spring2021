@@ -5,49 +5,59 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>LLama Facts</title>
 
-        <link rel="stylesheet" href="lib/style.css">
+        <link rel="stylesheet" href="style.css">
       </head>
     
       <body>
-        <div id="weight">
-          <h1>{{llamaFact}}</h1>
-        </div>
 
-        <div id="history">
-            <h1>{{llamaFact}}</h1>
+        <h1>Fun facts about Llamas!</h1>
+
+        <div class="gif">
+        <img src="llama_animation.gif" alt="dancing llama"> 
+        </div>
+        
+        <div class="facts">
+
+          <div id="weight">
+            <h2>{{llamaFact}}</h2>
+          </div>
+
+          <div id="history">
+            <h2>{{llamaFact}}</h2>
           </div>
 
           <div id="family">
-            <h1>{{llamaFact}}</h1>
+            <h2>{{llamaFact}}</h2>
           </div>
 
           <div id="carry">
-            <h1 v-if="fact==true">{{llamaFact}}</h1>
+            <h2 v-if="fact==true">{{llamaFact}}</h2>
           </div>
 
           <div id="population">
-            <h1>{{llamaFact}}</h1>
+            <h2>{{llamaFact}}</h2>
           </div>
 
           <div id="diet">
-            <h1>{{llamaFact}}</h1>
+            <h2>{{llamaFact}}</h2>
           </div>
 
           <div id="stomach">
-            <h1>{{llamaFact}}</h1>
+            <h2>{{llamaFact}}</h2>
           </div>
 
           <div id="poop">
-            <h1>{{llamaFact}}</h1>
+            <h2>{{llamaFact}}</h2>
           </div>
 
           <div id="lifespan">
-            <h1>{{llamaFact}}</h1>
+            <h2>{{llamaFact}}</h2>
           </div>
 
           <div id="relatives">
-            <h1>{{llamaFact}}</h1>
+            <h2>{{llamaFact}}</h2>
           </div>
+        </div>
     
     
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>

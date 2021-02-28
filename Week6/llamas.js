@@ -1,6 +1,3 @@
-// Add your code here
-// new instance of the Vue class
-
 new Vue({
     el: "#weight",
     data: {

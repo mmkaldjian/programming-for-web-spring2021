@@ -1,0 +1,21 @@
+body {
+    background-color: cornflowerblue;
+    margin: 50px;
+}
+
+h1 {
+    color: palegreen;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+img {
+    max-width: 300px;
+}
