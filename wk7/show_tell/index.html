@@ -6,25 +6,38 @@
         <title>Show and Tell</title>
 
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+
       </head>
     
       <body>
         <div id="print-list" v-cloak>
-            <h1 class="print-list-title">My (budding) fine art print collection</h1>
+            <h1 class="print-list-title">My (amateur) fine art print collection</h1>
             
-            <table class="list-container">
+            <table>
       
               <thead class="list-head">
-                <th class="rank">Rank</th>
-                <th class="name">Name</th>
+                <th class="image">Image</th>
+                <th class="title">Title</th>
+                <th class="artist">Artist</th>
+                <th class="year">Year</th>
+                <th class="edition">Edition</th>
+                <th class="medium">Medium</th>
               </thead>
               
-              <tbody class="llama-container">
+              <tbody class="print-container">
                 <tr 
-                v-for="(line, index) in llamas" 
-                v-bind:class="{even: (index + 1) % 2 === 0, odd: (index + 1) % 2 !==0}">
-                  <td class="rank">{{line.rank}}</td>
-                  <td class="name" >{{line.name}}</td>
+                v-for="(print, index) in prints" 
+                v-bind:class="{
+                    even: (index + 1) % 2 === 0, 
+                    odd: (index + 1) % 2 !==0}">
+                  <td class="image"><img v-bind:src="print.image"></td>
+                  <td class="title" >{{print.title}}</td>
+                  <td class="artist" >{{print.artist}}</td>
+                  <td class="year" >{{print.year}}</td>
+                  <td class="edition" >{{print.edition}}</td>
+                  <td class="medium" >{{print.medium}}</td>
                 </tr>
               </tbody>
               
