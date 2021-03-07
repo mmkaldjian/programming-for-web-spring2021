@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Show and Tell</title>
+
+        <link rel="stylesheet" href="style.css">
+      </head>
+    
+      <body>
+        <div id="print-list" v-cloak>
+            <h1 class="print-list-title">My (budding) fine art print collection</h1>
+            
+            <table class="list-container">
+      
+              <thead class="list-head">
+                <th class="rank">Rank</th>
+                <th class="name">Name</th>
+              </thead>
+              
+              <tbody class="llama-container">
+                <tr 
+                v-for="(line, index) in llamas" 
+                v-bind:class="{even: (index + 1) % 2 === 0, odd: (index + 1) % 2 !==0}">
+                  <td class="rank">{{line.rank}}</td>
+                  <td class="name" >{{line.name}}</td>
+                </tr>
+              </tbody>
+              
+            </table>
+          </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="show_tell.js"></script>
+    
+      </body>
+</html>
