@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Show and Tell</title>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+
+      </head>
+    
+      <body>
+        <div id="print-list" v-cloak>
+            <h1 class="print-list-title">My (amateur) fine art print collection</h1>
+            
+            <table>
+      
+              <thead class="list-head">
+                <th class="image">Image</th>
+                <th class="title">Title</th>
+                <th class="artist">Artist</th>
+                <th class="year">Year</th>
+                <th class="edition">Edition</th>
+                <th class="medium">Medium</th>
+                <th class="actions">Actions</th>
+
+              </thead>
+              
+              <tbody class="print-container">
+                <tr 
+                v-for="(print, index) in prints" 
+                v-bind:class="{
+                    even: (index + 1) % 2 === 0, 
+                    odd: (index + 1) % 2 !==0}">
+                  <td class="image"><img v-bind:src="print.image"></td>
+                  <td class="title">{{print.title}}</td>
+                  <td class="artist">{{print.artist}}</td>
+                  <td class="year">{{print.year}}</td>
+                  <td class="edition">{{print.edition}}</td>
+                  <td class="medium">{{print.medium}}</td>
+
+                  <td class="actions">
+                    <button type="button" v-on:click="deleteItem(print)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+              
+            </table>
+
+            <form v-on:submit.prevent="submitHandler" class="new-print-form">
+              <fieldset>
+
+                <legend>Add a print to the collection!</legend>
+
+                <div>
+                  <label for="image">Image</label>
+                  <input id="image" type="text" v-model="newPrintObject.image">
+                </div>
+
+                <div>
+                  <label for="title">Title</label>
+                  <input id="title" type="text" v-model="newPrintObject.title">
+                </div>
+
+                <div>
+                  <label for="artist">Artist</label>
+                  <input id="artist" type="text" v-model="newPrintObject.artist">
+                </div>
+
+                <div>
+                  <label for="year">Year</label>
+                  <input id="year" type="date" v-model="newPrintObject.year">
+                </div>
+
+                <div>
+                  <label for="edition">Edition</label>
+                  <input id="edition" type="text" v-model="newPrintObject.edition">
+                </div>
+
+                <div>
+                  <label for="medium">Medium</label>
+                  <input id="medium" type="text" v-model="newPrintObject.medium">
+                </div>
+
+                <button type="submit">Submit</button>
+
+              </fieldset>
+            </form>
+          </div>
+
+      
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="script.js"></script>
+    
+      </body>
+</html>
