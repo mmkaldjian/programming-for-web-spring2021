@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Show and Tell</title>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+
+      </head>
+    
+      <body>
+        <div id="print-list" v-cloak>
+
+            <h1 class="print-list-title">My (amateur) fine art print collection</h1>
+
+            <div v-for="print in prints">
+                    <print-component v-bind:image="print.image" v-bind:title="print.title" v-bind:artist="print.artist" v-bind:year="print.year" v-bind:edition="print.edition" v-bind:medium="print.medium"></print-component>
+            </div>
+
+            <form v-on:submit.prevent="submitHandler" class="new-print-form">
+              <fieldset>
+
+                <legend>Add a print to the collection!</legend>
+
+                <div>
+                  <label for="image">Image</label>
+                  <input id="image" type="text" v-model="newPrintObject.image">
+                </div>
+
+                <div>
+                  <label for="title">Title</label>
+                  <input id="title" type="text" v-model="newPrintObject.title">
+                </div>
+
+                <div>
+                  <label for="artist">Artist</label>
+                  <input id="artist" type="text" v-model="newPrintObject.artist">
+                </div>
+
+                <div>
+                  <label for="year">Year</label>
+                  <input id="year" type="date" v-model="newPrintObject.year">
+                </div>
+
+                <div>
+                  <label for="edition">Edition</label>
+                  <input id="edition" type="text" v-model="newPrintObject.edition">
+                </div>
+
+                <div>
+                  <label for="medium">Medium</label>
+                  <input id="medium" type="text" v-model="newPrintObject.medium">
+                </div>
+
+                <button type="submit">Submit</button>
+
+              </fieldset>
+            </form>
+          </div>
+
+      
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="script.js"></script>
+    
+      </body>
+</html>
