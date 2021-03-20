@@ -13,12 +13,43 @@
     
       <body>
         <div id="print-list" v-cloak>
-
             <h1 class="print-list-title">My (amateur) fine art print collection</h1>
+            
+            <table>
+      
+              <thead class="list-head">
+                <th class="image">Image</th>
+                <th class="title">Title</th>
+                <th class="artist">Artist</th>
+                <th class="year">Year</th>
+                <th class="edition">Edition</th>
+                <th class="medium">Medium</th>
+                <th class="actions">Actions</th>
 
-            <div v-for="print in prints">
-                    <print-component v-bind:image="print.image" v-bind:title="print.title" v-bind:artist="print.artist" v-bind:year="print.year" v-bind:edition="print.edition" v-bind:medium="print.medium"></print-component>
-            </div>
+              </thead>
+              
+              <tbody class="print-container">
+                <tr 
+                v-for="(print, index) in prints" 
+                v-bind:class="{
+                    even: (index + 1) % 2 === 0, 
+                    odd: (index + 1) % 2 !==0}"
+                    is="print-component"
+                    v-bind:image="print.image" 
+                    v-bind:title="print.title" 
+                    v-bind:artist="print.artist" 
+                    v-bind:year="print.year" 
+                    v-bind:edition="print.edition" 
+                    v-bind:medium="print.medium">
+
+
+                  <!-- <td class="actions">
+                    <button type="button" v-on:click="deleteItem(print)">Delete</button>
+                  </td> -->
+                </tr>
+              </tbody>
+              
+            </table>
 
             <form v-on:submit.prevent="submitHandler" class="new-print-form">
               <fieldset>

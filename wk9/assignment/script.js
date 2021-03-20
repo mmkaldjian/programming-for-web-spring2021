@@ -1,43 +1,16 @@
 Vue.component('print-component', {
     template: 
-
-    `<table>
-      
-    <thead class="list-head">
-      <th class="image">Image</th>
-      <th class="title">Title</th>
-      <th class="artist">Artist</th>
-      <th class="year">Year</th>
-      <th class="edition">Edition</th>
-      <th class="medium">Medium</th>
-      <th class="actions">Actions</th>
-
-    </thead>
-    
-    <tbody class="print-container">
-      <tr 
-      v-for="(print, index) in prints" 
-      v-bind:class="{
-          even: (index + 1) % 2 === 0, 
-          odd: (index + 1) % 2 !==0}">
-
+    `<tr>
           <td class="image"><img v-bind:src="image"></td>
           <td class="title">{{title}}</td>
           <td class="artist">{{artist}}</td>
           <td class="year">{{year}}</td>
           <td class="edition">{{edition}}</td>
           <td class="medium">{{medium}}</td>
-
-        <td class="actions">
-          <button type="button" v-on:click="deleteItem(print)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-    
-  </table>`,
+      </tr>`,
 
     props: ['image', 'title', 'artist', 'year', 'edition', 'medium']
-})
+});
 
 const printArray = [{
 	image: "img/schwartz_gestureXIV.jpg",
