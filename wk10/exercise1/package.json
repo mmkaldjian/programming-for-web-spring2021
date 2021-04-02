@@ -1,0 +1,23 @@
+{
+  "name": "programming-for-web-spring2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmkaldjian/programming-for-web-spring2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmkaldjian/programming-for-web-spring2021/issues"
+  },
+  "homepage": "https://github.com/mmkaldjian/programming-for-web-spring2021#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "vue": "^2.6.12"
+  }
+}
