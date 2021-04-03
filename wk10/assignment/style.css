@@ -1,0 +1,34 @@
+html {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.cocktail-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cocktail {
+    width: 144px;
+    border: 3px solid black;
+    background: #ccc;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.cocktail img {
+    width: 100%;
+    max-width: 53px;
+}
+
+.cocktail h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
