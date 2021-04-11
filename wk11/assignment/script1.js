@@ -1,4 +1,3 @@
-// let lineWeight = prompt("enter a stroke weight in lowercase", number);
 let lineWeight = prompt("enter a stroke weight in lowercase", 5);
 
 function setup() {
