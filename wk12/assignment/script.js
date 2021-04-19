@@ -18,7 +18,6 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight)
-    background(204, 229, 255);
     strokeWeight(15);
     stroke(0);
     let soundIndex = 0;
@@ -49,7 +48,7 @@ class Key {
     }
     show() {
         if (this.pressed) {
-            fill(0);
+            fill(255, 153, 153);
             ellipse(this.x, this.y, 200);
         }
         else {
@@ -76,7 +75,3 @@ function mousePressed() {
         }
     }
 }
-
-// use toggle function to turn sound on and off?
-// somehow need to associate each circle with one sound..how to do this?
-// how to toggle/trigger color AND sound with same click
