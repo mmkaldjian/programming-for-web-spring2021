@@ -1,0 +1,26 @@
+[v-cloak] {
+    display: none;
+  }
+
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+fieldset {
+    margin: 25px;
+}
+
+div {
+    margin: 10px 0;
+    display: flex;
+}
+
+div label {
+    margin-right: 10px;
+}
+
+div input, div select {
+    flex-grow: 1;
+}

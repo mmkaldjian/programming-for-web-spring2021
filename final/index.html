@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+
+        <title>Project Request Form</title>
+
+      </head>
+    
+      <body>
+        <div id="requestForm" v-cloak>
+
+          <form>
+            <h1>Project Request Form</h1>
+            <fieldset>
+              <legend>Organizational Information</legend>
+              <div>
+                <label for="orgName">Organization Name</label>
+                <input id="orgName" v-model="orgName">
+              </div>
+
+              <div>
+                <label for="orgCity">City</label>
+                <input id="orgCity" v-model="orgCity">
+              </div>
+
+              <div>
+                <label for="orgState">State</label>
+                <input id="orgState" v-model="orgState">
+              </div>
+
+              <div>
+                <label for="orgType">Type of Organization</label>
+                <select name="" id="" v-model="orgType">
+                  <option v-for="orgType in possibleTypes" v-bind:value="orgType.value">{{orgType.name}}</option>
+                </select>
+            </div>
+            <div>
+              <label for="otherType">If other, please explain:</label>
+              <textarea name="" id="otherType" cols="40" rows="1" v-model="otherType"></textarea>
+            </div>
+            <!-- If Nonprofit, upload NPO Certification Here -->
+            <div>
+            <p>If applicable,  upload NPO Certfication</p>
+            <br>
+            <input type="file"><button>Upload</button> <!--need to create a method to store the file-->
+            </div>
+
+              <div>
+                <label for="ein">If Business or LLC, enter EIN #</label>
+                <input id="ein" v-model="ein">
+
+              </div>
+            </fieldset>
+
+            <fieldset>
+            <legend>Primary Contact Information</legend>
+              <div>
+                <label for="firstName">First Name</label>
+                <input id="firstName" v-model="firstName">
+              </div>
+
+              <div>
+                <label for="lastName">Last Name</label>
+                <input id="lastName" v-model="lastName">
+              </div>
+
+              <div>
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" v-model="phone">
+              </div>
+
+              <div>
+                <label for="email">Email address</label>
+                <input type="email" id="email" v-model="email">
+              </div>
+
+              <div>
+                <label for="position">Position/Title</label>
+                <input id="position" v-model="position">
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Project Details</legend>
+
+              <div>
+                <label for="projectType">Type of Project</label>
+                <select name="" id="" v-model="projectType">
+                  <option v-for="projectType in possibleProjects" v-bind:value="projectType.value">{{projectType.name}}</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="otherProject">If other, please explain:</label>
+                <textarea name="" id="otherProject" cols="40" rows="1" v-model="otherProject"></textarea>
+              </div>
+
+              <div class="project-description">
+                <label for="description">Project Description</label>
+                <textarea name="" id="description" cols="50" rows="10" v-model="description"></textarea>
+              </div>
+
+              <div>
+                <label for="dueDate">Due Date</label>
+                <input type="date" id="dueDate" v-model="dueDate">
+              </div>
+
+              <div>
+                  <label for="budget">Budget range</label>
+                  <input type="radio" id="budget" v-model="budget" v-for="budget in possibleBudgets" v-bind:value="budget.value"> <!--{{budget.name}} fix this; watch video for possible elucidation-->
+              </div>
+
+            </fieldset>
+
+            <div class="output">
+              <h3>Output</h3>
+              First Name: {{firstName}}<br>
+              Last Name: {{lastName}}<br>
+              Organization: {{orgName}}<br>
+              Email: {{email}}<br>
+              Phone: {{phone}}<br>
+            </div>
+
+          </form>
+
+        </div>
+            
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="script.js"></script>
+    
+      </body>
+</html>
