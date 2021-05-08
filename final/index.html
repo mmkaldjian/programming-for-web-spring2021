@@ -14,7 +14,7 @@
       <body>
         <div id="requestForm" v-cloak>
 
-          <form>
+          <form v-on:submit="checkEmail">
 
             <div class="header-text">
             <h1>Project Request Form</h1>
@@ -41,18 +41,23 @@
                 </div>
               </div>
 
-              <div>
+              <div class="row">
+              <div class="col-sm">
                 <label for="orgType">Type of Organization</label>
                 <select name="" id="" v-model="orgType">
                   <option v-for="orgType in possibleTypes" v-bind:value="orgType.value">{{orgType.name}}</option>
                 </select>
             </div>
-
-            <div>
-              <label for="otherType">If other, please explain:</label>
-              <textarea name="" id="otherType" cols="40" rows="1" v-model="otherType"></textarea>
             </div>
-            <!-- If Nonprofit, upload NPO Certification Here -->
+
+            <div class="row">
+
+            <div class="col-sm">
+              <label for="otherType">If other, please explain:</label>
+              <textarea name="" id="otherType" cols="42" rows="1" v-model="otherType"></textarea>
+            </div>
+          </div>
+          
             <div>
             <p>If applicable,  upload NPO Certfication</p>
             <br>
@@ -68,25 +73,30 @@
 
             <fieldset class="contactInfo">
             <legend>Primary Contact Information</legend>
-              <div>
+
+            <div class="row">
+              <div class="col">
                 <label for="firstName">First Name</label>
                 <input id="firstName" v-model="firstName">
               </div>
 
-              <div>
+              <div class="col">
                 <label for="lastName">Last Name</label>
                 <input id="lastName" v-model="lastName">
               </div>
+            </div>
 
-              <div>
-                <label for="phone">Phone number</label>
+            <div class="row">
+              <div class="col">
+                <label for="phone">Phone</label>
                 <input type="tel" id="phone" v-model="phone">
               </div>
 
-              <div>
-                <label for="email">Email address</label>
+              <div class="col">
+                <label for="email">Email</label>
                 <input type="email" id="email" v-model="email">
               </div>
+            </div>
 
               <div>
                 <label for="position">Position/Title</label>
@@ -110,7 +120,7 @@
               </div>
 
               <div class="project-description">
-                <label for="description">Project Description</label>
+                <label for="description">Project Description <br>(200 words or less)</label>
                 <textarea name="" id="description" cols="50" rows="10" v-model="description"></textarea>
               </div>
 
@@ -121,11 +131,11 @@
 
               <div class="row">
                   <label class="col-sm" for="budget">Budget range</label>
-                  <label class="col-sm" v-for="budget in possibleBudgets">
+                  <label class="col-sm budget-text" v-for="budget in possibleBudgets">
                   <input type="radio" 
                   id="budget" 
                   v-model="budget" 
-                  v-bind:value="budget.value">
+                  v-bind:value="budget.value" >
                   {{budget.name}}
                   </label>
               </div>
@@ -133,7 +143,7 @@
             </fieldset>
 
             <div class="centered-button">
-              <b-button variant="outline-dark">Submit</b-button>            
+              <b-button variant="outline-dark" type="submit" v-bind:disabled="!email">Submit</b-button>            
             </div>
 
             <!-- <div class="output">

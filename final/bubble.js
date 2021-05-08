@@ -30,7 +30,7 @@ function draw() {
       fill(255); // color with gradient created
 
       ellipse(x+x2, y-y2, sz2, sz2);
-    }
+}
   }
 
 print(w)

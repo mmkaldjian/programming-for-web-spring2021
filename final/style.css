@@ -27,19 +27,19 @@ div input, div select {
 
 .orgInfo {
     padding: 20px;
-    margin: 10px;
+    margin: 15px;
     background-color: rgb(179, 214, 214);
 }
 
 .contactInfo {
 padding: 20px;
-margin: 10px;
+margin: 15px;
 background-color: rgb(244, 189, 197);
 }
 
 .projectDetails {
     padding: 20px;
-    margin: 10px;
+    margin: 15px;
     background-color: rgb(174, 186, 204);
 }
 
@@ -75,4 +75,13 @@ form {
 #requestForm {
     position: relative;
     z-index: 10;
+}
+
+.budget-text {
+    font-size: 12px;
+}
+
+legend {
+    font-family: 'Cabin Sketch', sans-serif;
+    color: white;
 }

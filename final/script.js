@@ -38,6 +38,18 @@ var vm = new Vue({
         {name: '$250-499', value: 'middle'},
         {name: '$500+', value: 'high'},
       ],
+    },
+
+    methods: {
+      checkEmail: function () {
+        if(this.email !== "") {
+          alert('Thank you for submitting your request! We will contact you via email within 24 hours.');
+          console.log(this.firstName, this.lastName, this.email);
+        }
+        else {
+          alert('Please make sure you have given us an email before submitting.');
+        }
+      },
     }
   })
 
