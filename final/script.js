@@ -6,9 +6,9 @@ var vm = new Vue({
       orgState: 'MN',
       orgType: '',
       possibleTypes: [
-        {value: 'Small business', name: 'smallBusiness'},
+        {value: 'small', name: 'Small Business'},
         {value: 'NPO', name: 'Nonprofit'},
-        {value: 'Individual', name: 'Private individual'},
+        {value: 'Individual', name: 'Private Individual'},
         {value: 'Other', name: 'Other'},
       ],
       otherType: '',

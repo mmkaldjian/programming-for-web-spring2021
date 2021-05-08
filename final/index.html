@@ -22,19 +22,23 @@
 
             <fieldset class="orgInfo">
               <legend>Organizational Information</legend>
-              <div>
+
+              <div class="row">
+                <div class="col-sm">
                 <label for="orgName">Organization Name</label>
                 <input id="orgName" v-model="orgName">
+                </div>
               </div>
 
-              <div>
-                <label for="orgCity">City</label>
-                <input id="orgCity" v-model="orgCity">
-              </div>
-
-              <div>
-                <label for="orgState">State</label>
-                <input id="orgState" v-model="orgState">
+              <div class="row">
+                <div class="col-sm">
+                  <label for="orgCity">City</label>
+                  <input id="orgCity" v-model="orgCity">
+                </div>
+                <div class="col-sm">
+                  <label for="orgState">State</label>
+                  <input id="orgState" v-model="orgState">
+                </div>
               </div>
 
               <div>
@@ -43,6 +47,7 @@
                   <option v-for="orgType in possibleTypes" v-bind:value="orgType.value">{{orgType.name}}</option>
                 </select>
             </div>
+
             <div>
               <label for="otherType">If other, please explain:</label>
               <textarea name="" id="otherType" cols="40" rows="1" v-model="otherType"></textarea>
@@ -51,7 +56,7 @@
             <div>
             <p>If applicable,  upload NPO Certfication</p>
             <br>
-            <input type="file"><button>Upload</button> <!--need to create a method to store the file-->
+            <input type="file"><b-button variant="outline-dark">Upload</b-button> <!--need to create a method to store the file-->
             </div>
 
               <div>
@@ -114,9 +119,15 @@
                 <input type="date" id="dueDate" v-model="dueDate">
               </div>
 
-              <div>
-                  <label for="budget">Budget range</label>
-                  <input type="radio" id="budget" v-model="budget" v-for="budget in possibleBudgets" v-bind:value="budget.value"> <!--{{budget.name}} what am i missing here? -->
+              <div class="row">
+                  <label class="col-sm" for="budget">Budget range</label>
+                  <label class="col-sm" v-for="budget in possibleBudgets">
+                  <input type="radio" 
+                  id="budget" 
+                  v-model="budget" 
+                  v-bind:value="budget.value">
+                  {{budget.name}}
+                  </label>
               </div>
 
             </fieldset>
@@ -140,7 +151,10 @@
             
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+
         <script src="script.js"></script>
+        <script src="bubble.js"></script>
     
       </body>
 </html>

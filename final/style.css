@@ -43,9 +43,9 @@ background-color: rgb(244, 189, 197);
     background-color: rgb(174, 186, 204);
 }
 
-h1 {
+.header-text h1 {
     font-family: 'Cabin Sketch', sans-serif;
-    font-size: xx-large; /* why isn't text size changing? BEcause of boostrap? */
+    font-size: 50px; /* why isn't text size changing? BEcause of boostrap? */
     padding: 30px;
     justify-content: center;
 }
@@ -65,6 +65,14 @@ form {
 
 }
 
-/* btn btn-outline-dark {
-    /* color: purple; how to style */
-/* how to create fields that are smaller/fit together, have a max amount of characters per field*/
+#mycanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#requestForm {
+    position: relative;
+    z-index: 10;
+}
