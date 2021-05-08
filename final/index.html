@@ -4,7 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css">
-
+        <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
         <title>Project Request Form</title>
 
       </head>
@@ -13,8 +15,12 @@
         <div id="requestForm" v-cloak>
 
           <form>
+
+            <div class="header-text">
             <h1>Project Request Form</h1>
-            <fieldset>
+            </div>
+
+            <fieldset class="orgInfo">
               <legend>Organizational Information</legend>
               <div>
                 <label for="orgName">Organization Name</label>
@@ -55,7 +61,7 @@
               </div>
             </fieldset>
 
-            <fieldset>
+            <fieldset class="contactInfo">
             <legend>Primary Contact Information</legend>
               <div>
                 <label for="firstName">First Name</label>
@@ -83,7 +89,7 @@
               </div>
             </fieldset>
 
-            <fieldset>
+            <fieldset class="projectDetails">
               <legend>Project Details</legend>
 
               <div>
@@ -110,25 +116,30 @@
 
               <div>
                   <label for="budget">Budget range</label>
-                  <input type="radio" id="budget" v-model="budget" v-for="budget in possibleBudgets" v-bind:value="budget.value"> <!--{{budget.name}} fix this; watch video for possible elucidation-->
+                  <input type="radio" id="budget" v-model="budget" v-for="budget in possibleBudgets" v-bind:value="budget.value"> <!--{{budget.name}} what am i missing here? -->
               </div>
 
             </fieldset>
 
-            <div class="output">
+            <div class="centered-button">
+              <b-button variant="outline-dark">Submit</b-button>            
+            </div>
+
+            <!-- <div class="output">
               <h3>Output</h3>
               First Name: {{firstName}}<br>
               Last Name: {{lastName}}<br>
               Organization: {{orgName}}<br>
               Email: {{email}}<br>
               Phone: {{phone}}<br>
-            </div>
+            </div> -->
 
           </form>
 
         </div>
             
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
         <script src="script.js"></script>
     
       </body>

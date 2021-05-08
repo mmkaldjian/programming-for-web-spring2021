@@ -4,13 +4,13 @@
 
 form {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-fieldset {
+/* fieldset {
     margin: 25px;
-}
+} */
 
 div {
     margin: 10px 0;
@@ -24,3 +24,47 @@ div label {
 div input, div select {
     flex-grow: 1;
 }
+
+.orgInfo {
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(179, 214, 214);
+}
+
+.contactInfo {
+padding: 20px;
+margin: 10px;
+background-color: rgb(244, 189, 197);
+}
+
+.projectDetails {
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(174, 186, 204);
+}
+
+h1 {
+    font-family: 'Cabin Sketch', sans-serif;
+    font-size: xx-large; /* why isn't text size changing? BEcause of boostrap? */
+    padding: 30px;
+    justify-content: center;
+}
+
+form {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-button {
+    justify-content: center;
+}
+
+.header-text {
+    justify-content: center;
+
+}
+
+/* btn btn-outline-dark {
+    /* color: purple; how to style */
+/* how to create fields that are smaller/fit together, have a max amount of characters per field*/
