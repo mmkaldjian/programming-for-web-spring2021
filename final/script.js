@@ -44,7 +44,7 @@ var vm = new Vue({
       checkEmail: function () {
         if(this.email !== "") {
           alert('Thank you for submitting your request! We will contact you via email within 24 hours.');
-          console.log(this.firstName, this.lastName, this.email);
+          console.log(this.orgName, this.firstName, this.lastName, this.email);
         }
         else {
           alert('Please make sure you have given us an email before submitting.');
