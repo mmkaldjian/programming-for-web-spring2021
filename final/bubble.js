@@ -6,7 +6,7 @@ var maxFrameCount = 400; // frameCount, change for faster or slower animation
 
 function setup() {
     var cnv = createCanvas(windowWidth, windowHeight);
-    cnv.id('mycanvas');
+    cnv.id('mycanvas'); // create canvas id to be able to style it underneath/fixed position in relation to the form
     noStroke();
 }
 
