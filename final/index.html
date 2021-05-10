@@ -12,9 +12,21 @@
       </head>
     
       <body>
+
+        <!-- For my final project, I’ve created a form that will support a broader concept that I am 
+          interested in developing in the MAGWD program. At a basic level, this initiative will seek 
+          to connect illustrators, designers, animators, and artists with local and minority-owned/led 
+          organizations, small businesses, and nonprofits in need of designed resources and materials. 
+          These organizations may not be able to allocate the funds, or have the educational resources 
+          to be able to create logos, posters, event designs, websites, etc. By partnering with a wide 
+          variety of creatives who are interested in building cultural momentum around civic engagement, 
+          this initiative will therefore provide resources for free or at reduced cost. Therefore, 
+          for my final I created an intake/project request form that I believe could be used as I work to 
+          build out this concept.-->
+          
         <div id="requestForm" v-cloak>
 
-          <form v-on:submit="checkEmail">
+          <form v-on:submit.prevent="checkEmail">
 
             <div class="header-text">
             <h1>Project Request Form</h1>
@@ -61,11 +73,11 @@
             <div>
             <p>If applicable,  upload NPO Certfication</p>
             <br>
-            <input type="file"><b-button variant="outline-dark">Upload</b-button> <!--need to create a method to store the file-->
+            <input type="file"><b-button variant="outline-dark">Upload</b-button>
             </div>
 
               <div>
-                <label for="ein">If Business or LLC, enter EIN #</label>
+                <label for="ein">If Business or LLC, enter EIN/Business Tax ID #</label>
                 <input id="ein" v-model="ein">
 
               </div>
@@ -120,8 +132,8 @@
               </div>
 
               <div class="project-description">
-                <label for="description">Project Description <br>(200 words or less)</label>
-                <textarea name="" id="description" cols="50" rows="10" v-model="description"></textarea>
+                <label for="description">Project Description <br>(500 characters or less)</label>
+                <textarea name="" id="description" cols="50" rows="10" v-model="description" :maxlength="max"></textarea>
               </div>
 
               <div>
@@ -134,7 +146,7 @@
                   <label class="col-sm budget-text" v-for="budget in possibleBudgets">
                   <input type="radio" 
                   id="budget" 
-                  v-model="budget" 
+                  v-model="selectedBudget" 
                   v-bind:value="budget.value" >
                   {{budget.name}}
                   </label>
@@ -143,17 +155,8 @@
             </fieldset>
 
             <div class="centered-button">
-              <b-button variant="outline-dark" type="submit" v-bind:disabled="!email">Submit</b-button>            
+              <b-button variant="outline-dark" type="submit" v-bind:disabled="!email">Submit</b-button> <!--button disabled if email field is empty-->           
             </div>
-
-            <!-- <div class="output">
-              <h3>Output</h3>
-              First Name: {{firstName}}<br>
-              Last Name: {{lastName}}<br>
-              Organization: {{orgName}}<br>
-              Email: {{email}}<br>
-              Phone: {{phone}}<br>
-            </div> -->
 
           </form>
 

@@ -27,7 +27,7 @@ function draw() {
       var y2 = map(cos(-theta+offSet), 0, 1, 25, 0); // map y position
       var sz2 = map(sin(-theta+offSet), 0, 1, 10, 60); // map size off the ellipse
 
-      fill(255); // color with gradient created
+      fill(255);
 
       ellipse(x+x2, y-y2, sz2, sz2);
 }
@@ -37,40 +37,7 @@ print(w)
 angle += .0000015
 }
 
-// var bubbles = [];
-
-// function setup() {
-
-//     var cnv = createCanvas(windowWidth, windowHeight);
-//     cnv.id('mycanvas');
-//     for (var i = 0; i < 40; i++) {
-//         var x = random(width);
-//         var y = random(height);
-//         bubbles.push(new Bubble(x, y));
-//     }
-// }
-
-// function draw() {
-
-//     background(255);
-//     for (var i = 0; i < bubbles.length; i++) {
-//         bubbles[i].move();
-//         bubbles[i].display();
-//     }
-// }
-
-// function Bubble(x, y) {
-//     this.x = x;
-//     this.y = y;
-
-//     this.display = function() {
-//         stroke(0);
-//         fill(255, 150);
-//         ellipse(this.x, this.y, 48, 48);
-//     }
-
-//     this.move = function() {
-//         this.x = this.x + random(-1, 1);
-//         this.y = this.y + random(-1, 1);
-//     }   
-// }
+// Derived from original p5js sketch by @dearnaomichan located at https://codepen.io/dearnaomichan/details/XEWVao
+// Copyright (c) 2021 by Naomi (https://codepen.io/dearnaomichan/pen/XEWVao)
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

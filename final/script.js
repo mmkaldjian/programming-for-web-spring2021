@@ -1,6 +1,7 @@
 var vm = new Vue({
     el: "#requestForm",
     data: {
+      // Organizational information
       orgName: '',
       orgCity: '',
       orgState: 'MN',
@@ -14,11 +15,14 @@ var vm = new Vue({
       otherType: '',
       ein: '',
 
+      // Primary contact information
       firstName: '',
       lastName: '',
       phone: '',
       email: '',
       position: '',
+
+      // Project details
       projectType: '',
       possibleProjects: [
         {name: 'Branding/Logo', value: 'branding'},
@@ -30,8 +34,9 @@ var vm = new Vue({
       ],
       otherProject: '',
       description: '',
+      max: 500, // max characters allowed into project description box
       dueDate: '',
-      budget: '',
+      selectedBudget: '',
       possibleBudgets: [
         {name: '$50-99', value: 'low'},
         {name: '$100-249', value: 'low-middle'},
@@ -42,11 +47,11 @@ var vm = new Vue({
 
     methods: {
       checkEmail: function () {
-        if(this.email !== "") {
+        if(this.email !== "") { // if email field contains text
           alert('Thank you for submitting your request! We will contact you via email within 24 hours.');
-          console.log(this.orgName, this.firstName, this.lastName, this.email);
+          console.log('Organization Name:', this.orgName, 'Primary Contact:', this.firstName, this.lastName, 'Email:', this.email);
         }
-        else {
+        else { // if email field does not contain text
           alert('Please make sure you have given us an email before submitting.');
         }
       },
